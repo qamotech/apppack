@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Download — App Monetization Starter Pack | Qamelot</title>
+<meta name="description" content="Download your App Monetization Starter Pack — 45 working demo apps, 45 monetization models.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#070a14">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+<!--
+  PUBLISHING NOTE (not buyer-facing):
+  This is the PayPal return / thank-you page. Set it as the return URL on the
+  $29 PayPal payment link, and publish it TOGETHER with the ZIP so the
+  relative download link below resolves:
+    - This file
+    - App-Monetization-Starter-Pack.zip  (same folder)
+  Publish under an unlisted path — anyone with this URL can download.
+  Buy-button hookup lives on App-Monetization-Sales-Page.html (data-buy).
+-->
+<style>
+:root{
+  --bg:#070a14; --bg2:#0b1120; --panel:#0f172e; --card:#111c36; --card2:#0d1528;
+  --line:#23335e; --line2:#2e4478;
+  --text:#f5f7ff; --muted:#a9b4d0; --muted2:#7f8cae;
+  --gem:#2ee6a8; --gem-dark:#0e9f73; --cyan:#3fd9ff; --gold:#f5c451;
+  --radius:18px; --shadow:0 18px 50px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+::selection{background:var(--gem);color:#04150e}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.wrap{width:min(880px,100% - 32px);margin-inline:auto}
+@media(min-width:720px){.wrap{width:min(880px,100% - 48px)}}
+header{border-bottom:1px solid var(--line);background:rgba(7,10,20,.92)}
+.nav{display:flex;align-items:center;gap:10px;padding:13px 0;font-weight:900;text-decoration:none}
+.nav .gem{font-size:26px;filter:drop-shadow(0 0 12px rgba(46,230,168,.65));animation:gemFloat 3.2s ease-in-out infinite}
+.nav small{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;line-height:1.1}
+.nav .name{font-size:18px;line-height:1.1}
+@keyframes gemFloat{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-5px) rotate(4deg)}}
+main{padding:48px 0 56px;background:
+  radial-gradient(700px 340px at 15% -60px,rgba(46,230,168,.20),transparent 60%),
+  radial-gradient(700px 380px at 88% -40px,rgba(63,217,255,.16),transparent 60%),
+  linear-gradient(180deg,var(--bg2),var(--bg))}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#0e1f1a;border:1px solid #1d5c46;color:var(--gem);font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:999px}
+h1{font-size:clamp(34px,8vw,54px);line-height:1;letter-spacing:-.02em;margin:18px 0 12px;font-weight:950}
+h1 .grad{background:linear-gradient(90deg,var(--gem),var(--cyan),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(16px,3.6vw,19px);color:var(--muted);max-width:620px}
+.lead strong{color:var(--text)}
+.dl-box{margin-top:26px;background:linear-gradient(160deg,#122344,#0c2a22 60%,#171106);border:1px solid var(--line2);border-radius:24px;padding:26px;box-shadow:var(--shadow);text-align:center}
+.dl-icon{font-size:52px}
+.dl-name{font-weight:950;font-size:20px;margin-top:8px;word-break:break-word}
+.dl-meta{color:var(--muted);font-size:14px;font-weight:700;margin:4px 0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:900;border-radius:999px;padding:16px 28px;font-size:17px;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;text-align:center}
+.btn:active{transform:scale(.98)}
+.btn-download{background:linear-gradient(135deg,var(--gem),#19b8d8);color:#03130d;box-shadow:0 10px 28px rgba(46,230,168,.32)}
+.btn-download:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(46,230,168,.42)}
+.dl-status{min-height:22px;margin-top:14px;font-size:14px;font-weight:800;color:var(--gem)}
+.dl-note{font-size:13px;color:var(--muted2);margin-top:6px}
+h2{font-size:clamp(22px,5vw,28px);margin:38px 0 14px}
+.steps{display:grid;gap:12px}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.step-num{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:950;font-size:17px;color:#04150e;background:linear-gradient(135deg,var(--gem),var(--cyan));margin-bottom:12px}
+.step h3{font-size:16px;margin-bottom:5px}
+.step p{color:var(--muted);font-size:14.5px}
+.step code{background:#0a1226;border:1px solid var(--line2);border-radius:6px;padding:1px 6px;font-size:13px;color:var(--cyan)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.card p,.card li{color:var(--muted);font-size:14.5px}
+.card ul{margin:8px 0 0 18px;display:grid;gap:5px}
+.card strong{color:var(--text)}
+footer{border-top:1px solid var(--line);padding:26px 0 34px;color:var(--muted);font-size:14px;background:var(--bg2)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="nav"><span class="gem" aria-hidden="true">💎</span><span><span class="name">Qamelot</span><small>Clark Family Projects</small></span></div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <span class="eyebrow">✅ Payment received — thank you!</span>
+    <h1>Your Starter Pack<br><span class="grad">is ready to download.</span></h1>
+    <p class="lead">Thanks for grabbing the <strong>App Monetization Starter Pack</strong> — 45 working demo apps, 45 ways apps make money. Your download is right below. <strong>Save this page or the ZIP somewhere safe</strong> so you can get back to it anytime.</p>
+
+    <div class="dl-box">
+      <div class="dl-icon" aria-hidden="true">📦</div>
+      <p class="dl-name">App-Monetization-Starter-Pack.zip</p>
+      <p class="dl-meta">356 KB • 45 apps + README model map • ZIP file</p>
+      <a class="btn btn-download" href="#" id="dlBtn" data-download="app-monetization-starter-pack-zip">⬇️ Download the Starter Pack</a>
+      <p class="dl-status" id="dlStatus" aria-live="polite"></p>
+      <p class="dl-note" id="dlNote">Tap once and check your Downloads folder. On a phone, you may need a Files app to unzip it.</p>
+    </div>
+
+    <h2>🚀 Get started in 3 steps</h2>
+    <div class="steps">
+      <article class="step"><div class="step-num">1</div><h3>Unzip the pack</h3><p>Open the ZIP and you'll find an <code>apps/</code> folder with all 45 apps, plus the README model map.</p></article>
+      <article class="step"><div class="step-num">2</div><h3>Read the README first</h3><p>The model map shows what each app demonstrates and how that model earns — it's your guide to the whole pack.</p></article>
+      <article class="step"><div class="step-num">3</div><h3>Open any app</h3><p>Open a file from <code>apps/</code> in any browser — no build step, no server. Then view the source and adapt the pattern to your idea.</p></article>
+    </div>
+
+    <h2>🧰 If something's off</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Download didn't start?</strong> Tap the download button again — your browser may have blocked the first try.</li>
+        <li><strong>Can't find the file?</strong> Check your browser's Downloads list or your device's Downloads folder.</li>
+        <li><strong>Still stuck?</strong> Contact Qamelot / Clark Family Projects with your PayPal receipt and we'll get you sorted.</li>
+      </ul>
+      <p style="margin-top:12px"><strong>License reminder:</strong> yours to use and adapt for your own projects, personal or commercial. Please don't resell or redistribute the pack itself as-is.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">💎 <strong style="color:var(--text)">Qamelot / Clark Family Projects</strong> — App Monetization Starter Pack • 45 apps • 45 models • 1 file each</div>
+</footer>
+
+<script>
+document.querySelectorAll("[data-download]").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    document.getElementById("dlStatus").textContent="⬇️ Your download has started — check your Downloads folder.";
+  });
+});
+</script>
+
+<script>
+document.getElementById('dlBtn').addEventListener('click', async function (e) {
+  e.preventDefault();
+  var note = document.getElementById('dlNote');
+  try {
+    note.textContent = '\u23F3 Preparing your download\u2026';
+    var res = await fetch('pack.zip.b64');
+    if (!res.ok) throw new Error('fetch failed');
+    var text = (await res.text()).replace(/\s+/g, '');
+    var bin = atob(text);
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    var blob = new Blob([bytes], { type: 'application/zip' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'App-Monetization-Starter-Pack.zip';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+    note.textContent = '\u2705 Download started \u2014 check your downloads folder. On a phone, you may need a Files app to unzip it.';
+  } catch (err) {
+    note.textContent = '\u26A0\uFE0F Download hiccup \u2014 tap the button to try again.';
+  }
+});
+</script>
+</body>
+</html>

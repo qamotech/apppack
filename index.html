@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Monetization Starter Pack — 45 Apps, 45 Ways Apps Make Money | Qamelot</title>
+<meta name="description" content="45 complete single-file HTML demo apps, each demonstrating a different app monetization model. Open in your browser, view the source, adapt the pattern. $29 one-time.">
+<meta name="theme-color" content="#070a14">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+<style>
+:root{
+  --bg:#070a14; --bg2:#0b1120; --panel:#0f172e; --card:#111c36; --card2:#0d1528;
+  --line:#23335e; --line2:#2e4478;
+  --text:#f5f7ff; --muted:#a9b4d0; --muted2:#7f8cae;
+  --gem:#2ee6a8; --gem-dark:#0e9f73; --cyan:#3fd9ff; --gold:#f5c451; --violet:#9a7bff;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+::selection{background:var(--gem);color:#04150e}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+@media(min-width:720px){.wrap{width:min(1120px,100% - 48px)}}
+
+/* ---------- Header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(7,10,20,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;letter-spacing:.2px}
+.brand .gem{font-size:26px;filter:drop-shadow(0 0 12px rgba(46,230,168,.65));animation:gemFloat 3.2s ease-in-out infinite}
+.brand small{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;line-height:1.1}
+.brand .name{font-size:18px;line-height:1.1}
+.nav-links{display:none;gap:22px;font-size:14px;font-weight:700;color:var(--muted)}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--text)}
+@media(min-width:760px){.nav-links{display:flex}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:900;border-radius:999px;padding:13px 22px;font-size:15px;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;text-align:center}
+.btn:active{transform:scale(.98)}
+.btn-buy,.btn-gem{background:linear-gradient(135deg,var(--gem),#19b8d8);color:#03130d;box-shadow:0 10px 28px rgba(46,230,168,.32)}
+.btn-buy:hover,.btn-gem:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(46,230,168,.42)}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--line2)}
+.btn-ghost:hover{border-color:var(--gem);color:var(--gem)}
+.btn-sm{padding:9px 16px;font-size:14px}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:52px 0 42px;background:
+  radial-gradient(700px 340px at 15% -60px,rgba(46,230,168,.20),transparent 60%),
+  radial-gradient(700px 380px at 88% -40px,rgba(63,217,255,.16),transparent 60%),
+  radial-gradient(600px 400px at 55% 110%,rgba(154,123,255,.12),transparent 60%),
+  linear-gradient(180deg,var(--bg2),var(--bg))}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#0e1f1a;border:1px solid #1d5c46;color:var(--gem);font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:999px}
+.hero h1{font-size:clamp(36px,8.5vw,64px);line-height:.98;letter-spacing:-.02em;margin:18px 0 14px;font-weight:950}
+.hero h1 .grad{background:linear-gradient(90deg,var(--gem),var(--cyan),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{font-size:clamp(17px,3.8vw,21px);color:var(--muted);max-width:680px}
+.hero .lead strong{color:var(--text)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 10px}
+.hero-note{font-size:13px;color:var(--muted2)}
+.price-anchor{font-weight:900;color:var(--gold)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:28px}
+@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 14px;text-align:center}
+.stat b{display:block;font-size:28px;line-height:1;color:var(--gem)}
+.stat span{font-size:12.5px;color:var(--muted);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.ticker{margin-top:28px;border-block:1px solid var(--line);padding:10px 0;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.ticker-track{display:inline-block;animation:ticker 42s linear infinite;font-weight:800;color:var(--muted);font-size:14px}
+.ticker-track em{font-style:normal;color:var(--gem);margin:0 10px}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes gemFloat{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-5px) rotate(4deg)}}
+@keyframes shine{from{background-position:0% 50%}to{background-position:200% 50%}}
+
+/* ---------- Sections ---------- */
+section{padding:52px 0}
+.kicker{color:var(--gem);font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+h2{font-size:clamp(27px,5.5vw,38px);line-height:1.08;letter-spacing:-.01em;margin-bottom:10px}
+.sub{color:var(--muted);max-width:700px;margin-bottom:26px}
+.alt{background:var(--bg2);border-block:1px solid var(--line)}
+
+/* What's inside */
+.inside-grid{display:grid;gap:12px}
+@media(min-width:760px){.inside-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1020px){.inside-grid{grid-template-columns:repeat(4,1fr)}}
+.inside-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.inside-card .icon{font-size:30px;margin-bottom:10px}
+.inside-card h3{font-size:17px;margin-bottom:6px}
+.inside-card p{font-size:14.5px;color:var(--muted)}
+.checklist{list-style:none;display:grid;gap:10px;margin-top:22px}
+@media(min-width:760px){.checklist{grid-template-columns:1fr 1fr}}
+.checklist li{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14.5px;display:flex;gap:10px;align-items:flex-start}
+.checklist li::before{content:"✅";flex:none}
+
+/* App grid */
+.toolbar{position:sticky;top:57px;z-index:20;background:rgba(7,10,20,.94);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px}
+.toolbar input{flex:1 1 210px;background:#0a1226;color:var(--text);border:1px solid var(--line2);border-radius:999px;padding:11px 16px;font-size:15px}
+.toolbar input::placeholder{color:var(--muted2)}
+.count{font-size:13px;font-weight:800;color:var(--muted);white-space:nowrap}
+.count b{color:var(--gem)}
+.apps{display:grid;gap:12px}
+@media(min-width:640px){.apps{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1020px){.apps{grid-template-columns:repeat(3,1fr)}}
+.app-card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s ease,transform .15s ease}
+.app-card:hover{border-color:var(--gem-dark);transform:translateY(-2px)}
+.app-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.num{font-size:12px;font-weight:950;letter-spacing:.1em;color:#04150e;background:linear-gradient(135deg,var(--gem),var(--cyan));border-radius:999px;padding:4px 9px;flex:none}
+.model{font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border:1px solid #5a4716;background:#211a08;border-radius:999px;padding:4px 9px;text-align:right}
+.app-card h3{font-size:17px;line-height:1.25}
+.app-card p{font-size:14px;color:var(--muted);flex:1}
+.no-results{display:none;border:1px dashed var(--line2);border-radius:var(--radius);padding:28px;text-align:center;color:var(--muted)}
+
+/* How it works */
+.steps{display:grid;gap:12px;counter-reset:step}
+@media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;position:relative}
+.step-num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:950;font-size:19px;color:#04150e;background:linear-gradient(135deg,var(--gem),var(--cyan));margin-bottom:14px;box-shadow:0 8px 22px rgba(46,230,168,.3)}
+.step h3{font-size:18px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:14.5px}
+.step code{background:#0a1226;border:1px solid var(--line2);border-radius:6px;padding:1px 6px;font-size:13px;color:var(--cyan)}
+
+/* Price */
+.price-box{background:linear-gradient(160deg,#122344,#0c2a22 55%,#171106);border:1px solid var(--line2);border-radius:24px;padding:26px;box-shadow:var(--shadow);display:grid;gap:24px}
+@media(min-width:860px){.price-box{grid-template-columns:1.05fr .95fr;padding:36px}}
+.price-big{font-size:64px;font-weight:950;line-height:1;letter-spacing:-.03em}
+.price-big sup{font-size:26px;vertical-align:top;color:var(--gem)}
+.price-tag{color:var(--muted);font-weight:700}
+.includes{list-style:none;display:grid;gap:9px;margin-top:16px}
+.includes li{display:flex;gap:10px;font-size:15px}
+.includes li::before{content:"💎";flex:none}
+.license{background:rgba(7,10,20,.55);border:1px solid var(--line);border-radius:16px;padding:18px}
+.license h3{margin-bottom:8px;font-size:16px}
+.license p,.license li{font-size:14.5px;color:var(--muted)}
+.license ul{margin:8px 0 0 18px;display:grid;gap:5px}
+.guarantee{font-size:13px;color:var(--muted2);margin-top:12px;text-align:center}
+
+/* FAQ */
+.faq{display:grid;gap:10px;max-width:820px}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.faq-item button{width:100%;background:none;border:0;color:var(--text);text-align:left;padding:17px 18px;font-size:16px;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.faq-item button span{color:var(--gem);font-size:20px;line-height:1;flex:none}
+.faq-a{display:none;padding:0 18px 17px;color:var(--muted);font-size:15px}
+.faq-item.open .faq-a{display:block}
+
+/* Final CTA + footer */
+.final{text-align:center}
+.final h2{max-width:640px;margin-inline:auto}
+.final p{color:var(--muted);max-width:560px;margin:0 auto 22px}
+footer{border-top:1px solid var(--line);padding:28px 0 36px;color:var(--muted);font-size:14px;background:var(--bg2)}
+.footer-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,120px);background:#0e2a20;border:1px solid var(--gem-dark);color:var(--text);padding:13px 18px;border-radius:999px;font-weight:800;font-size:14px;z-index:99;transition:transform .3s ease;box-shadow:var(--shadow);max-width:calc(100% - 32px);text-align:center}
+.toast.show{transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Qamelot — App Monetization Starter Pack">
+      <span class="gem" aria-hidden="true">💎</span>
+      <span><span class="name">Qamelot</span><small>Clark Family Projects</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Page">
+      <a href="#inside">What's Inside</a><a href="#apps">The 45 Apps</a><a href="#how">How It Works</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-buy btn-sm" href="https://www.paypal.com/ncp/payment/VYEC3SYYK6RWU" data-buy="app-monetization-starter-pack">Get It — $29</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">💎 Digital Download • Instant ZIP</span>
+    <h1>45 working apps.<br><span class="grad">45 ways apps make money.</span></h1>
+    <p class="lead">The <strong>App Monetization Starter Pack</strong> is 45 complete, single-file HTML demo apps — each one built around a <strong>different monetization model</strong>, from subscriptions and in-app purchases to booking fees, revenue share, and everything in between.</p>
+    <p class="lead" style="margin-top:10px">Open any app in your browser and use it right away. <strong>No build step. No server. No dependencies.</strong> Then view the source and adapt the pattern to your own idea.</p>
+    <div class="hero-cta">
+      <a class="btn btn-buy" href="https://www.paypal.com/ncp/payment/VYEC3SYYK6RWU" data-buy="app-monetization-starter-pack">💎 Get the Starter Pack — $29</a>
+      <a class="btn btn-ghost" href="#apps">Browse all 45 apps ↓</a>
+    </div>
+    <p class="hero-note"><span class="price-anchor">$29 one-time</span> — no subscription, yours to keep &nbsp;•&nbsp; Less than 65¢ per app</p>
+    <div class="stats" aria-label="Pack at a glance">
+      <div class="stat"><b>45</b><span>Complete demo apps</span></div>
+      <div class="stat"><b>45</b><span>Monetization models</span></div>
+      <div class="stat"><b>1 file</b><span>Per app — HTML only</span></div>
+      <div class="stat"><b>0</b><span>Servers or build steps</span></div>
+    </div>
+    <div class="ticker" aria-hidden="true"><span class="ticker-track" id="tickerTrack"></span></div>
+  </div>
+</div>
+
+<!-- ================= WHAT'S INSIDE ================= -->
+<section id="inside">
+  <div class="wrap">
+    <p class="kicker">📦 What's Inside</p>
+    <h2>Not screenshots. Not theory. Working apps you can open, use, and copy.</h2>
+    <p class="sub">Every app in the pack is a finished, usable mini-product — not a mockup. Each one demonstrates its money model in action, with the paywall, checkout flow, tier gate, fee, or unlock built right into the experience.</p>
+    <div class="inside-grid">
+      <article class="inside-card"><div class="icon">📱</div><h3>45 complete apps</h3><p>Each app lives in the <strong>apps/</strong> folder as one self-contained HTML file. Double-click it, it runs. Data saves on-device with localStorage.</p></article>
+      <article class="inside-card"><div class="icon">🗺️</div><h3>The Model Map README</h3><p>A full map of all 45: what each app is, which model it demonstrates, and exactly how that model earns. Your study guide for the whole pack.</p></article>
+      <article class="inside-card"><div class="icon">🌙</div><h3>N8 Upgrade Kit included</h3><p>Every app ships with dark mode, a text-size control, and a back-to-top dock already built in — the same polish across all 45.</p></article>
+      <article class="inside-card"><div class="icon">🔓</div><h3>Source you can learn from</h3><p>No bundlers, no frameworks, no compiled code. View Source shows you clean HTML, CSS, and JavaScript you can actually read and reuse.</p></article>
+    </div>
+    <ul class="checklist">
+      <li><span><strong>Instant ZIP download</strong> — the full pack, ready right after checkout.</span></li>
+      <li><span><strong>Works offline</strong> — open the files anywhere, no internet or account needed.</span></li>
+      <li><span><strong>Phone, tablet &amp; desktop</strong> — every app is responsive and touch-friendly.</span></li>
+      <li><span><strong>Beginner-readable code</strong> — plain HTML/CSS/JS, no build tools to install.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= THE 45 APPS ================= -->
+<section id="apps" class="alt">
+  <div class="wrap">
+    <p class="kicker">🗂️ The Full Lineup</p>
+    <h2>All 45 apps. All 45 models.</h2>
+    <p class="sub">Search by app name or model — try “subscription”, “fees”, or “marketplace”. Every card below is one complete app in the pack.</p>
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="🔍 Search apps or models…" aria-label="Search apps or monetization models">
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+    <div class="apps" id="appsGrid">
+
+      <article class="app-card" data-search="streak habit tracker subscription"><div class="app-top"><span class="num">01</span><span class="model">Subscription</span></div><h3>Streak — Habit Tracker</h3><p>Recurring monthly/annual plans with a free-vs-Pro tier gate.</p></article>
+      <article class="app-card" data-search="lexi vocabulary builder in-app purchases iap"><div class="app-top"><span class="num">02</span><span class="model">In-App Purchases</span></div><h3>Lexi — Vocabulary Builder</h3><p>Selling unlocks, consumables and upgrades inside a free app.</p></article>
+      <article class="app-card" data-search="trivia sprint advertising ads game"><div class="app-top"><span class="num">03</span><span class="model">Advertising</span></div><h3>Trivia Sprint — Ad-Supported Game</h3><p>Free content paid for by ad placements and impressions.</p></article>
+      <article class="app-card" data-search="trail log one-time purchase journal"><div class="app-top"><span class="num">04</span><span class="model">One-Time Purchase</span></div><h3>Trail Log — Journal</h3><p>A single upfront payment unlocks the full product forever.</p></article>
+      <article class="app-card" data-search="simmer freemium recipe planner"><div class="app-top"><span class="num">05</span><span class="model">Freemium</span></div><h3>Simmer — Recipe Planner</h3><p>Free core product; power features sit behind a paid upgrade.</p></article>
+      <article class="app-card" data-search="skillswap marketplace commission learn neighbors"><div class="app-top"><span class="num">06</span><span class="model">Marketplace Commission</span></div><h3>SkillSwap — Learn from Neighbors</h3><p>Take a percentage cut of every transaction between users.</p></article>
+      <article class="app-card" data-search="pixelforge pay-per-use photo studio"><div class="app-top"><span class="num">07</span><span class="model">Pay-Per-Use</span></div><h3>PixelForge — Photo Studio</h3><p>Charge per session, render, or unit of usage.</p></article>
+      <article class="app-card" data-search="chapter co book picks affiliate marketing"><div class="app-top"><span class="num">08</span><span class="model">Affiliate Marketing</span></div><h3>Chapter &amp; Co. — Book Picks</h3><p>Earn commissions recommending third-party products.</p></article>
+      <article class="app-card" data-search="pulse donations tipping workout tracker"><div class="app-top"><span class="num">09</span><span class="model">Donations</span></div><h3>Pulse — Workout Tracker</h3><p>Voluntary supporter contributions and tip-jar funding.</p></article>
+      <article class="app-card" data-search="sprout plant care sponsorship"><div class="app-top"><span class="num">10</span><span class="model">Sponsorship</span></div><h3>Sprout — Plant Care</h3><p>Brands pay for placement and sponsored content slots.</p></article>
+      <article class="app-card" data-search="ledger tiered pricing budget planner"><div class="app-top"><span class="num">11</span><span class="model">Tiered Pricing</span></div><h3>Ledger — Budget Planner</h3><p>Multiple price tiers matched to different user segments.</p></article>
+      <article class="app-card" data-search="city brief metered paywall news reader"><div class="app-top"><span class="num">12</span><span class="model">Metered Paywall</span></div><h3>City Brief — News Reader</h3><p>Free allowance, then charge by measured usage.</p></article>
+      <article class="app-card" data-search="still pay what you want meditation pwyw"><div class="app-top"><span class="num">13</span><span class="model">Pay What You Want</span></div><h3>Still — Meditation</h3><p>Users set their own price; social proof drives revenue.</p></article>
+      <article class="app-card" data-search="townsquare white-label licensing community events board"><div class="app-top"><span class="num">14</span><span class="model">White-Label Licensing</span></div><h3>TownSquare — Community Events Board</h3><p>License your product for other brands to resell as theirs.</p></article>
+      <article class="app-card" data-search="trailpass season pass hiking challenges seasonal"><div class="app-top"><span class="num">15</span><span class="model">Season Pass</span></div><h3>TrailPass — Hiking Challenges</h3><p>Time-boxed premium access sold per season.</p></article>
+      <article class="app-card" data-search="homehero lead generation find local pros home services"><div class="app-top"><span class="num">16</span><span class="model">Lead Generation</span></div><h3>HomeHero — Find Local Pros</h3><p>Capture qualified leads and sell or monetize the demand.</p></article>
+      <article class="app-card" data-search="pawfund crowdfunding pet foster matcher"><div class="app-top"><span class="num">17</span><span class="model">Crowdfunding</span></div><h3>PawFund — Pet Foster Matcher</h3><p>Pre-sell and fund the build with backer contributions.</p></article>
+      <article class="app-card" data-search="gamenight rentals board game rental library"><div class="app-top"><span class="num">18</span><span class="model">Rentals</span></div><h3>GameNight — Board Game Rental Library</h3><p>Charge for temporary access to goods, spaces, or items.</p></article>
+      <article class="app-card" data-search="teampulse b2b per-seat licensing team recognition board"><div class="app-top"><span class="num">19</span><span class="model">B2B Per-Seat Licensing</span></div><h3>TeamPulse — Team Recognition Board</h3><p>Businesses pay per team member, per month.</p></article>
+      <article class="app-card" data-search="commutepulse data licensing crowdsourced commute insights"><div class="app-top"><span class="num">20</span><span class="model">Data Licensing</span></div><h3>CommutePulse — Commute Insights</h3><p>Package and license data feeds to other companies.</p></article>
+      <article class="app-card" data-search="splitfair transaction fees group expense splitter"><div class="app-top"><span class="num">21</span><span class="model">Transaction Fees</span></div><h3>SplitFair — Group Expense Splitter</h3><p>A small fee on every payment flowing through the app.</p></article>
+      <article class="app-card" data-search="marketloop referral rewards farmers market pickup club"><div class="app-top"><span class="num">22</span><span class="model">Referral Rewards</span></div><h3>MarketLoop — Farmers Market Pickup Club</h3><p>Reward users who bring in new paying customers.</p></article>
+      <article class="app-card" data-search="learnbundle bundle pricing course bundle builder"><div class="app-top"><span class="num">23</span><span class="model">Bundle Pricing</span></div><h3>LearnBundle — Course Bundle Builder</h3><p>Sell grouped products together at one combined price.</p></article>
+      <article class="app-card" data-search="giftly cafe gift cards studio"><div class="app-top"><span class="num">24</span><span class="model">Gift Cards</span></div><h3>Giftly Café — Gift Card Studio</h3><p>Prepaid stored value that also drives repeat visits.</p></article>
+      <article class="app-card" data-search="stampcard loyalty points neighborhood rewards passport"><div class="app-top"><span class="num">25</span><span class="model">Loyalty Points</span></div><h3>StampCard — Neighborhood Rewards Passport</h3><p>Points economies that retain users and reward spending.</p></article>
+      <article class="app-card" data-search="fixmate premium support appliance troubleshooter"><div class="app-top"><span class="num">26</span><span class="model">Premium Support</span></div><h3>FixMate — Appliance Troubleshooter</h3><p>Charge for priority help, SLAs, and white-glove service.</p></article>
+      <article class="app-card" data-search="harbortide paid api access tide surf api explorer"><div class="app-top"><span class="num">27</span><span class="model">Paid API Access</span></div><h3>HarborTide — Tide &amp; Surf API Explorer</h3><p>Sell metered access to your API by key and quota.</p></article>
+      <article class="app-card" data-search="launchpad enterprise add-ons product launch planner"><div class="app-top"><span class="num">28</span><span class="model">Enterprise Add-Ons</span></div><h3>LaunchPad — Product Launch Planner</h3><p>High-ticket modules sold on top of a base platform.</p></article>
+      <article class="app-card" data-search="treasuremap promoted listings neighborhood finds"><div class="app-top"><span class="num">29</span><span class="model">Promoted Listings</span></div><h3>TreasureMap — Neighborhood Finds</h3><p>Users pay to boost visibility inside your marketplace.</p></article>
+      <article class="app-card" data-search="bidlane auction fees community auction house"><div class="app-top"><span class="num">30</span><span class="model">Auction Fees</span></div><h3>BidLane — Community Auction House</h3><p>Listing and final-value fees on auction transactions.</p></article>
+      <article class="app-card" data-search="skillcert certification fees micro-credential studio"><div class="app-top"><span class="num">31</span><span class="model">Certification Fees</span></div><h3>SkillCert — Micro-Credential Studio</h3><p>Charge for exams, credentials, and verified badges.</p></article>
+      <article class="app-card" data-search="posterpress print-on-demand custom poster studio"><div class="app-top"><span class="num">32</span><span class="model">Print-on-Demand</span></div><h3>PosterPress — Custom Poster Studio</h3><p>Sell custom printed goods with zero inventory.</p></article>
+      <article class="app-card" data-search="starlight sessions ticketing fees live event ticketing"><div class="app-top"><span class="num">33</span><span class="model">Ticketing Fees</span></div><h3>Starlight Sessions — Live Event Ticketing</h3><p>Service fees on every event ticket sold.</p></article>
+      <article class="app-card" data-search="gearguard protection plans gadget care"><div class="app-top"><span class="num">34</span><span class="model">Protection Plans</span></div><h3>GearGuard — Gadget Care &amp; Protection Plans</h3><p>Extended warranties and protection upsells at checkout.</p></article>
+      <article class="app-card" data-search="chefchat consultation fees ask a chef"><div class="app-top"><span class="num">35</span><span class="model">Consultation Fees</span></div><h3>ChefChat — Ask a Chef</h3><p>Sell expert time through booked paid sessions.</p></article>
+      <article class="app-card" data-search="greengig job posting fees sustainability jobs board"><div class="app-top"><span class="num">36</span><span class="model">Job Posting Fees</span></div><h3>GreenGig — Sustainability Jobs Board</h3><p>Employers pay to list openings to your audience.</p></article>
+      <article class="app-card" data-search="neighbordrop delivery fees local delivery"><div class="app-top"><span class="num">37</span><span class="model">Delivery Fees</span></div><h3>NeighborDrop — Local Delivery</h3><p>Per-order delivery charges and service fees.</p></article>
+      <article class="app-card" data-search="firstplay early access indie game hub"><div class="app-top"><span class="num">38</span><span class="model">Early Access</span></div><h3>FirstPlay — Indie Game Early Access Hub</h3><p>Charge superfans for beta and early-release access.</p></article>
+      <article class="app-card" data-search="reunited success fees lost pet recovery"><div class="app-top"><span class="num">39</span><span class="model">Success Fees</span></div><h3>Reunited — Lost Pet Recovery</h3><p>Get paid only when your user gets a result.</p></article>
+      <article class="app-card" data-search="pineloop booking fees campsite booking"><div class="app-top"><span class="num">40</span><span class="model">Booking Fees</span></div><h3>PineLoop — Campsite Booking</h3><p>Reservation and service fees on bookings.</p></article>
+      <article class="app-card" data-search="cup cart franchise fees mobile coffee franchise explorer"><div class="app-top"><span class="num">41</span><span class="model">Franchise Fees</span></div><h3>Cup &amp; Cart — Mobile Coffee Franchise Explorer</h3><p>License your concept to operators for upfront + ongoing fees.</p></article>
+      <article class="app-card" data-search="pixelpond virtual currency virtual aquarium"><div class="app-top"><span class="num">42</span><span class="model">Virtual Currency</span></div><h3>PixelPond — Virtual Aquarium</h3><p>Sell in-app currency that users spend inside the app.</p></article>
+      <article class="app-card" data-search="looplab pay-per-download royalty-free sound packs"><div class="app-top"><span class="num">43</span><span class="model">Pay-Per-Download</span></div><h3>LoopLab — Royalty-Free Sound Packs</h3><p>Charge for each download of digital content.</p></article>
+      <article class="app-card" data-search="swiftlane priority fees priority processing"><div class="app-top"><span class="num">44</span><span class="model">Priority Fees</span></div><h3>SwiftLane — Priority Processing</h3><p>Skip-the-line and expedited-service charges.</p></article>
+      <article class="app-card" data-search="collabcut revenue share creator collaboration hub"><div class="app-top"><span class="num">45</span><span class="model">Revenue Share</span></div><h3>CollabCut — Creator Collaboration Hub</h3><p>Take an agreed percentage of the revenue you help generate.</p></article>
+    </div>
+    <div class="no-results" id="noResults">No apps match that search. Try a model like “fees”, “subscription”, or “marketplace”.</div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how">
+  <div class="wrap">
+    <p class="kicker">🚀 How It Works</p>
+    <h2>From download to your own product in 3 steps</h2>
+    <p class="sub">No setup, no toolchain, no tutorials required to get started. If you can open a web page, you can use this pack.</p>
+    <div class="steps">
+      <article class="step"><div class="step-num">1</div><h3>Open an app</h3><p>Unzip the pack and open any file in <code>apps/</code> in your browser. Use it like a real product — tap the paywall, try the upgrade, feel how the model works from the user's side.</p></article>
+      <article class="step"><div class="step-num">2</div><h3>View the source</h3><p>Each app is one self-contained HTML file. Right-click → View Source (or open it in any editor) and read the exact pattern behind the pricing screen, tier gate, or fee flow.</p></article>
+      <article class="step"><div class="step-num">3</div><h3>Adapt the pattern</h3><p>Copy the file, rename it, swap in your content and branding. Pick the model that fits your idea — then build your real product on a pattern you've already seen working.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICE ================= -->
+<section id="buy" class="alt">
+  <div class="wrap">
+    <p class="kicker">💰 Price</p>
+    <h2>One price. Everything included.</h2>
+    <p class="sub">No tiers, no upsells, no subscription. Pay once, download the whole pack, keep it forever.</p>
+    <div class="price-box">
+      <div>
+        <p class="price-tag">APP MONETIZATION STARTER PACK</p>
+        <p class="price-big"><sup>$</sup>29</p>
+        <p class="price-tag">One-time payment • Instant ZIP download • Less than 65¢ per app</p>
+        <ul class="includes">
+          <li><span><strong>All 45 complete demo apps</strong> — single-file HTML, ready to open</span></li>
+          <li><span><strong>The Model Map README</strong> — every app, model &amp; how it earns</span></li>
+          <li><span><strong>N8 Upgrade Kit in every app</strong> — dark mode, text-size, back-to-top</span></li>
+          <li><span><strong>Full source included</strong> — read it, copy it, adapt it</span></li>
+          <li><span><strong>Simple commercial license</strong> — use it in your own projects</span></li>
+        </ul>
+        <div class="hero-cta" style="margin-top:22px">
+          <a class="btn btn-buy" href="https://www.paypal.com/ncp/payment/VYEC3SYYK6RWU" data-buy="app-monetization-starter-pack">💎 Buy Now — $29</a>
+        </div>
+        <p class="guarantee">Secure checkout via PayPal — one-time payment, no account needed to pay.</p>
+      </div>
+      <div class="license">
+        <h3>📜 Simple license</h3>
+        <p>Plain English, no legal maze:</p>
+        <ul>
+          <li><strong style="color:var(--text)">Use &amp; adapt</strong> — build on these apps and patterns for your own projects, personal or commercial.</li>
+          <li><strong style="color:var(--text)">Ship what you make</strong> — products you create from these patterns are yours.</li>
+          <li><strong style="color:var(--text)">Don't resell the pack as-is</strong> — please don't redistribute or resell the pack itself, unchanged, as your own product.</li>
+        </ul>
+        <p style="margin-top:12px">That's it. One buyer, one license, use it across your own projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <p class="kicker">❓ FAQ</p>
+    <h2>Quick answers</h2>
+    <p class="sub">Four things people ask before they buy.</p>
+    <div class="faq">
+      <div class="faq-item"><button type="button" aria-expanded="false">What do I get, and how is it delivered?<span>+</span></button><div class="faq-a">An instant ZIP download right after checkout containing all 45 single-file HTML apps in an <strong>apps/</strong> folder, plus the Model Map README. No shipping, no waiting — download, unzip, and open the first app in under a minute.</div></div>
+      <div class="faq-item"><button type="button" aria-expanded="false">Do the apps need a server or anything installed?<span>+</span></button><div class="faq-a">No. Every app is a single self-contained HTML file with no build step and no dependencies. Open it in any modern browser — phone, tablet, or computer — and it runs, even offline. App data saves on-device using localStorage.</div></div>
+      <div class="faq-item"><button type="button" aria-expanded="false">Can I use them commercially?<span>+</span></button><div class="faq-a">Yes. The simple license lets you use and adapt the apps and their patterns for your own projects, personal or commercial — including products you sell. The one limit: don't resell or redistribute the pack itself as-is.</div></div>
+      <div class="faq-item"><button type="button" aria-expanded="false">What about refunds and support?<span>+</span></button><div class="faq-a">If the pack doesn't work as described, reach out and we'll make it right. For support, contact Qamelot / Clark Family Projects with your order details and a description of the issue — include the app name or number (01–45) so we can help faster.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="alt final">
+  <div class="wrap">
+    <p style="font-size:40px" aria-hidden="true">💎</p>
+    <h2>Stop guessing how apps make money. Open 45 of them and see.</h2>
+    <p>One download. 45 working patterns. Pick the model that fits your idea and build on it today.</p>
+    <a class="btn btn-buy" href="https://www.paypal.com/ncp/payment/VYEC3SYYK6RWU" data-buy="app-monetization-starter-pack">💎 Get the Starter Pack — $29</a>
+    <p class="hero-note" style="margin-top:12px">$29 one-time • Instant ZIP download • No server needed</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>💎 <strong style="color:var(--text)">Qamelot / Clark Family Projects</strong> — App Monetization Starter Pack</span>
+    <span>45 apps • 45 models • 1 file each</span>
+  </div>
+  <div class="wrap" style="margin-top:10px;font-size:13px;color:var(--muted2)">Built as complete, single-file HTML demos. Demo checkouts inside the apps illustrate each monetization model and do not process real payments.</div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">💎 Opening secure PayPal checkout…</div>
+
+<script>
+// Ticker — model names from the pack map, duplicated for a seamless loop
+(function(){
+  var models=["Subscription","In-App Purchases","Advertising","One-Time Purchase","Freemium","Marketplace Commission","Pay-Per-Use","Affiliate Marketing","Donations","Sponsorship","Tiered Pricing","Metered Paywall","Pay What You Want","White-Label Licensing","Season Pass","Lead Generation","Crowdfunding","Rentals","Per-Seat Licensing","Data Licensing","Transaction Fees","Referral Rewards","Bundle Pricing","Gift Cards","Loyalty Points","Premium Support","Paid API Access","Enterprise Add-Ons","Promoted Listings","Auction Fees","Certification Fees","Print-on-Demand","Ticketing Fees","Protection Plans","Consultation Fees","Job Posting Fees","Delivery Fees","Early Access","Success Fees","Booking Fees","Franchise Fees","Virtual Currency","Pay-Per-Download","Priority Fees","Revenue Share"];
+  var html=models.map(function(m){return m+" <em>◆</em> "}).join("");
+  document.getElementById("tickerTrack").innerHTML=html+html;
+})();
+
+// Search / filter the 45-app grid
+(function(){
+  var input=document.getElementById("search"), cards=Array.prototype.slice.call(document.querySelectorAll(".app-card")),
+      count=document.getElementById("count"), empty=document.getElementById("noResults");
+  function update(){
+    var q=(input.value||"").trim().toLowerCase(), shown=0;
+    cards.forEach(function(c){
+      var hay=(c.getAttribute("data-search")+" "+c.textContent).toLowerCase(), hit=!q||hay.indexOf(q)>-1;
+      c.style.display=hit?"":"none"; if(hit)shown++;
+    });
+    count.innerHTML="Showing <b>"+shown+"</b> of 45 apps";
+    empty.style.display=shown?"none":"block";
+  }
+  input.addEventListener("input",update); update();
+})();
+
+// FAQ accordion
+document.querySelectorAll(".faq-item > button").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    var item=btn.parentElement, open=item.classList.toggle("open");
+    btn.setAttribute("aria-expanded",open?"true":"false");
+    btn.querySelector("span").textContent=open?"−":"+";
+  });
+});
+
+// Buy buttons — href="#" placeholder until the Stripe URL is swapped in via data-buy / href
+document.querySelectorAll("[data-buy]").forEach(function(btn){
+  btn.addEventListener("click",function(e){
+    if(btn.getAttribute("href")==="#"){
+      e.preventDefault();
+      var t=document.getElementById("toast"); t.classList.add("show");
+      setTimeout(function(){t.classList.remove("show")},3400);
+    }
+  });
+});
+</script>
+</body>
+</html>
