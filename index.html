@@ -120,6 +120,33 @@ h2{font-size:clamp(27px,5.5vw,38px);line-height:1.08;letter-spacing:-.01em;margi
 /* Price */
 .price-box{background:linear-gradient(160deg,#122344,#0c2a22 55%,#171106);border:1px solid var(--line2);border-radius:24px;padding:26px;box-shadow:var(--shadow);display:grid;gap:24px}
 @media(min-width:860px){.price-box{grid-template-columns:1.05fr .95fr;padding:36px}}
+/* Preview marquee */
+.preview{padding:34px 0 6px;overflow:hidden}
+.preview-head{text-align:center;color:var(--muted);font-weight:700;margin-bottom:14px}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.mq-track{display:flex;gap:12px;width:max-content;padding:6px 0;animation:mqScroll 65s linear infinite}
+.mq-track.rev{animation:mqScrollR 72s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+@keyframes mqScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes mqScrollR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.mq-chip{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(160deg,#122344,#0b1626);border:1px solid var(--line2);border-radius:12px;padding:9px 14px;white-space:nowrap}
+.mq-chip b{color:var(--gem);font-size:13px}
+.mq-name{font-weight:800;font-size:14.5px}
+.mq-model{color:var(--muted);font-size:12.5px}
+/* Cross-promo */
+.xpromo{max-width:860px;margin:0 auto;background:linear-gradient(160deg,#2a1a08,#122344 70%);border:1px solid var(--line2);border-radius:20px;padding:24px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.xpromo h3{font-size:21px;margin:0}
+.xpromo p{color:var(--muted);margin:0;font-size:15px}
+.xpromo .xp-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:8px}
+.xpromo .xp-price{font-weight:900;font-size:17px}
+/* Email capture hook */
+.map-hook{position:fixed;left:50%;bottom:18px;transform:translate(-50%,140%);width:min(430px,calc(100vw - 28px));background:linear-gradient(160deg,#122344,#0c2a22 60%,#171106);border:1px solid var(--line2);border-radius:18px;box-shadow:var(--shadow);padding:20px 20px 16px;z-index:90;transition:transform .45s ease}
+.map-hook.show{transform:translate(-50%,0)}
+.map-hook h3{font-size:19px;margin:0 26px 6px 0}
+.map-hook p{color:var(--muted);font-size:14.5px;margin:0 0 12px}
+.map-hook .hook-x{position:absolute;top:8px;right:12px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;padding:4px}
+.map-hook .hook-no{display:block;margin-top:10px;background:none;border:none;color:var(--muted);font-size:13.5px;cursor:pointer;text-decoration:underline;padding:0}
+.map-hook .hook-fine{font-size:12px;color:var(--muted);margin-top:8px}
 .price-big{font-size:64px;font-weight:950;line-height:1;letter-spacing:-.03em}
 .price-big sup{font-size:26px;vertical-align:top;color:var(--gem)}
 .price-tag{color:var(--muted);font-weight:700}
@@ -187,6 +214,13 @@ footer{border-top:1px solid var(--line);padding:28px 0 36px;color:var(--muted);f
     </div>
     <div class="ticker" aria-hidden="true"><span class="ticker-track" id="tickerTrack"></span></div>
   </div>
+</div>
+
+<!-- ================= PREVIEW ================= -->
+<div class="preview" aria-label="Preview of the 45 apps in the pack">
+  <p class="preview-head">🎬 THE GOODS, IN MOTION — ALL 45 APPS IN THE PACK</p>
+  <div class="marquee"><div class="mq-track"><span class="mq-chip"><b>01</b><span class="mq-name">Streak</span><span class="mq-model">Subscription</span></span><span class="mq-chip"><b>02</b><span class="mq-name">Lexi</span><span class="mq-model">In-App Purchases</span></span><span class="mq-chip"><b>03</b><span class="mq-name">Trivia Sprint</span><span class="mq-model">Advertising</span></span><span class="mq-chip"><b>04</b><span class="mq-name">Trail Log</span><span class="mq-model">One-Time Purchase</span></span><span class="mq-chip"><b>05</b><span class="mq-name">Simmer</span><span class="mq-model">Freemium</span></span><span class="mq-chip"><b>06</b><span class="mq-name">SkillSwap</span><span class="mq-model">Marketplace Commission</span></span><span class="mq-chip"><b>07</b><span class="mq-name">PixelForge</span><span class="mq-model">Pay-Per-Use</span></span><span class="mq-chip"><b>08</b><span class="mq-name">Chapter & Co.</span><span class="mq-model">Affiliate Marketing</span></span><span class="mq-chip"><b>09</b><span class="mq-name">Pulse</span><span class="mq-model">Donations</span></span><span class="mq-chip"><b>10</b><span class="mq-name">Sprout</span><span class="mq-model">Sponsorship</span></span><span class="mq-chip"><b>11</b><span class="mq-name">Ledger</span><span class="mq-model">Tiered Pricing</span></span><span class="mq-chip"><b>12</b><span class="mq-name">City Brief</span><span class="mq-model">Metered Paywall</span></span><span class="mq-chip"><b>13</b><span class="mq-name">Still</span><span class="mq-model">Pay What You Want</span></span><span class="mq-chip"><b>14</b><span class="mq-name">TownSquare</span><span class="mq-model">White-Label Licensing</span></span><span class="mq-chip"><b>15</b><span class="mq-name">TrailPass</span><span class="mq-model">Season Pass</span></span><span class="mq-chip"><b>16</b><span class="mq-name">HomeHero</span><span class="mq-model">Lead Generation</span></span><span class="mq-chip"><b>17</b><span class="mq-name">PawFund</span><span class="mq-model">Crowdfunding</span></span><span class="mq-chip"><b>18</b><span class="mq-name">GameNight</span><span class="mq-model">Rentals</span></span><span class="mq-chip"><b>19</b><span class="mq-name">TeamPulse</span><span class="mq-model">B2B Per-Seat Licensing</span></span><span class="mq-chip"><b>20</b><span class="mq-name">CommutePulse</span><span class="mq-model">Data Licensing</span></span><span class="mq-chip"><b>21</b><span class="mq-name">SplitFair</span><span class="mq-model">Transaction Fees</span></span><span class="mq-chip"><b>22</b><span class="mq-name">MarketLoop</span><span class="mq-model">Referral Rewards</span></span><span class="mq-chip"><b>23</b><span class="mq-name">LearnBundle</span><span class="mq-model">Bundle Pricing</span></span><span class="mq-chip"><b>01</b><span class="mq-name">Streak</span><span class="mq-model">Subscription</span></span><span class="mq-chip"><b>02</b><span class="mq-name">Lexi</span><span class="mq-model">In-App Purchases</span></span><span class="mq-chip"><b>03</b><span class="mq-name">Trivia Sprint</span><span class="mq-model">Advertising</span></span><span class="mq-chip"><b>04</b><span class="mq-name">Trail Log</span><span class="mq-model">One-Time Purchase</span></span><span class="mq-chip"><b>05</b><span class="mq-name">Simmer</span><span class="mq-model">Freemium</span></span><span class="mq-chip"><b>06</b><span class="mq-name">SkillSwap</span><span class="mq-model">Marketplace Commission</span></span><span class="mq-chip"><b>07</b><span class="mq-name">PixelForge</span><span class="mq-model">Pay-Per-Use</span></span><span class="mq-chip"><b>08</b><span class="mq-name">Chapter & Co.</span><span class="mq-model">Affiliate Marketing</span></span><span class="mq-chip"><b>09</b><span class="mq-name">Pulse</span><span class="mq-model">Donations</span></span><span class="mq-chip"><b>10</b><span class="mq-name">Sprout</span><span class="mq-model">Sponsorship</span></span><span class="mq-chip"><b>11</b><span class="mq-name">Ledger</span><span class="mq-model">Tiered Pricing</span></span><span class="mq-chip"><b>12</b><span class="mq-name">City Brief</span><span class="mq-model">Metered Paywall</span></span><span class="mq-chip"><b>13</b><span class="mq-name">Still</span><span class="mq-model">Pay What You Want</span></span><span class="mq-chip"><b>14</b><span class="mq-name">TownSquare</span><span class="mq-model">White-Label Licensing</span></span><span class="mq-chip"><b>15</b><span class="mq-name">TrailPass</span><span class="mq-model">Season Pass</span></span><span class="mq-chip"><b>16</b><span class="mq-name">HomeHero</span><span class="mq-model">Lead Generation</span></span><span class="mq-chip"><b>17</b><span class="mq-name">PawFund</span><span class="mq-model">Crowdfunding</span></span><span class="mq-chip"><b>18</b><span class="mq-name">GameNight</span><span class="mq-model">Rentals</span></span><span class="mq-chip"><b>19</b><span class="mq-name">TeamPulse</span><span class="mq-model">B2B Per-Seat Licensing</span></span><span class="mq-chip"><b>20</b><span class="mq-name">CommutePulse</span><span class="mq-model">Data Licensing</span></span><span class="mq-chip"><b>21</b><span class="mq-name">SplitFair</span><span class="mq-model">Transaction Fees</span></span><span class="mq-chip"><b>22</b><span class="mq-name">MarketLoop</span><span class="mq-model">Referral Rewards</span></span><span class="mq-chip"><b>23</b><span class="mq-name">LearnBundle</span><span class="mq-model">Bundle Pricing</span></span></div></div>
+  <div class="marquee"><div class="mq-track rev"><span class="mq-chip"><b>24</b><span class="mq-name">Giftly Café</span><span class="mq-model">Gift Cards</span></span><span class="mq-chip"><b>25</b><span class="mq-name">StampCard</span><span class="mq-model">Loyalty Points</span></span><span class="mq-chip"><b>26</b><span class="mq-name">FixMate</span><span class="mq-model">Premium Support</span></span><span class="mq-chip"><b>27</b><span class="mq-name">HarborTide</span><span class="mq-model">Paid API Access</span></span><span class="mq-chip"><b>28</b><span class="mq-name">LaunchPad</span><span class="mq-model">Enterprise Add-Ons</span></span><span class="mq-chip"><b>29</b><span class="mq-name">TreasureMap</span><span class="mq-model">Promoted Listings</span></span><span class="mq-chip"><b>30</b><span class="mq-name">BidLane</span><span class="mq-model">Auction Fees</span></span><span class="mq-chip"><b>31</b><span class="mq-name">SkillCert</span><span class="mq-model">Certification Fees</span></span><span class="mq-chip"><b>32</b><span class="mq-name">PosterPress</span><span class="mq-model">Print-on-Demand</span></span><span class="mq-chip"><b>33</b><span class="mq-name">Starlight Sessions</span><span class="mq-model">Ticketing Fees</span></span><span class="mq-chip"><b>34</b><span class="mq-name">GearGuard</span><span class="mq-model">Protection Plans</span></span><span class="mq-chip"><b>35</b><span class="mq-name">ChefChat</span><span class="mq-model">Consultation Fees</span></span><span class="mq-chip"><b>36</b><span class="mq-name">GreenGig</span><span class="mq-model">Job Posting Fees</span></span><span class="mq-chip"><b>37</b><span class="mq-name">NeighborDrop</span><span class="mq-model">Delivery Fees</span></span><span class="mq-chip"><b>38</b><span class="mq-name">FirstPlay</span><span class="mq-model">Early Access</span></span><span class="mq-chip"><b>39</b><span class="mq-name">Reunited</span><span class="mq-model">Success Fees</span></span><span class="mq-chip"><b>40</b><span class="mq-name">PineLoop</span><span class="mq-model">Booking Fees</span></span><span class="mq-chip"><b>41</b><span class="mq-name">Cup & Cart</span><span class="mq-model">Franchise Fees</span></span><span class="mq-chip"><b>42</b><span class="mq-name">PixelPond</span><span class="mq-model">Virtual Currency</span></span><span class="mq-chip"><b>43</b><span class="mq-name">LoopLab</span><span class="mq-model">Pay-Per-Download</span></span><span class="mq-chip"><b>44</b><span class="mq-name">SwiftLane</span><span class="mq-model">Priority Fees</span></span><span class="mq-chip"><b>45</b><span class="mq-name">CollabCut</span><span class="mq-model">Revenue Share</span></span><span class="mq-chip"><b>24</b><span class="mq-name">Giftly Café</span><span class="mq-model">Gift Cards</span></span><span class="mq-chip"><b>25</b><span class="mq-name">StampCard</span><span class="mq-model">Loyalty Points</span></span><span class="mq-chip"><b>26</b><span class="mq-name">FixMate</span><span class="mq-model">Premium Support</span></span><span class="mq-chip"><b>27</b><span class="mq-name">HarborTide</span><span class="mq-model">Paid API Access</span></span><span class="mq-chip"><b>28</b><span class="mq-name">LaunchPad</span><span class="mq-model">Enterprise Add-Ons</span></span><span class="mq-chip"><b>29</b><span class="mq-name">TreasureMap</span><span class="mq-model">Promoted Listings</span></span><span class="mq-chip"><b>30</b><span class="mq-name">BidLane</span><span class="mq-model">Auction Fees</span></span><span class="mq-chip"><b>31</b><span class="mq-name">SkillCert</span><span class="mq-model">Certification Fees</span></span><span class="mq-chip"><b>32</b><span class="mq-name">PosterPress</span><span class="mq-model">Print-on-Demand</span></span><span class="mq-chip"><b>33</b><span class="mq-name">Starlight Sessions</span><span class="mq-model">Ticketing Fees</span></span><span class="mq-chip"><b>34</b><span class="mq-name">GearGuard</span><span class="mq-model">Protection Plans</span></span><span class="mq-chip"><b>35</b><span class="mq-name">ChefChat</span><span class="mq-model">Consultation Fees</span></span><span class="mq-chip"><b>36</b><span class="mq-name">GreenGig</span><span class="mq-model">Job Posting Fees</span></span><span class="mq-chip"><b>37</b><span class="mq-name">NeighborDrop</span><span class="mq-model">Delivery Fees</span></span><span class="mq-chip"><b>38</b><span class="mq-name">FirstPlay</span><span class="mq-model">Early Access</span></span><span class="mq-chip"><b>39</b><span class="mq-name">Reunited</span><span class="mq-model">Success Fees</span></span><span class="mq-chip"><b>40</b><span class="mq-name">PineLoop</span><span class="mq-model">Booking Fees</span></span><span class="mq-chip"><b>41</b><span class="mq-name">Cup & Cart</span><span class="mq-model">Franchise Fees</span></span><span class="mq-chip"><b>42</b><span class="mq-name">PixelPond</span><span class="mq-model">Virtual Currency</span></span><span class="mq-chip"><b>43</b><span class="mq-name">LoopLab</span><span class="mq-model">Pay-Per-Download</span></span><span class="mq-chip"><b>44</b><span class="mq-name">SwiftLane</span><span class="mq-model">Priority Fees</span></span><span class="mq-chip"><b>45</b><span class="mq-name">CollabCut</span><span class="mq-model">Revenue Share</span></span></div></div>
 </div>
 
 <!-- ================= WHAT'S INSIDE ================= -->
@@ -349,6 +383,22 @@ footer{border-top:1px solid var(--line);padding:28px 0 36px;color:var(--muted);f
   </div>
 </section>
 
+
+<!-- ================= CROSS-PROMO ================= -->
+<section>
+  <div class="wrap">
+    <div class="xpromo">
+      <p class="price-tag">🥐 FROM THE SAME BUILDER</p>
+      <h3>Crumb2Coin — Crumb to Coin 🥐→🪙</h3>
+      <p>Got a recipe everybody keeps telling you to sell? This 9-stage playbook app walks you from one great bake to a real food business — checklists, pitfalls to avoid, and the exact launch steps, right on your phone.</p>
+      <div class="xp-row">
+        <span class="xp-price">$19 launch price <span style="color:var(--muted);font-weight:600">(goes to $29)</span></span>
+        <a class="btn btn-ghost" href="https://qamotech.github.io/c2c/" target="_blank" rel="noopener">🥐 Check out Crumb2Coin →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -404,6 +454,52 @@ document.querySelectorAll("[data-buy]").forEach(function(btn){
     }
   });
 });
+</script>
+
+<!-- Email capture hook: free Model Map (shows once) -->
+<div class="map-hook" id="mapHook" role="dialog" aria-label="Get the free App Monetization Model Map" hidden>
+  <button class="hook-x" id="mapHookX" type="button" aria-label="Close">×</button>
+  <h3>🧭 Before you go — grab the free Model Map</h3>
+  <p>All 45 ways apps make money — what each model is and how it earns — in one quick-reference sheet. Free, no catch.</p>
+  <a class="btn btn-buy" href="https://docs.google.com/forms/d/e/1FAIpQLSdeDtItDR7QCkGrxtGagN5m5q2aSGsbYmJ9BwNC8AROruSZaQ/viewform" target="_blank" rel="noopener" id="mapHookGo">📩 Get the free Model Map</a>
+  <p class="hook-fine">One email with your sheet. No spam, no list-selling, ever.</p>
+  <button class="hook-no" id="mapHookNo" type="button">No thanks, I\'ll pass</button>
+</div>
+<script>
+(function(){
+  var KEY = "apMapHookSeen";
+  try { if (localStorage.getItem(KEY)) return; } catch (e) {}
+  var hook = document.getElementById("mapHook"), shown = false;
+  function show(){
+    if (shown) return; shown = true;
+    try { localStorage.setItem(KEY, "1"); } catch (e) {}
+    hook.hidden = false;
+    requestAnimationFrame(function(){ hook.classList.add("show"); });
+    cleanup();
+  }
+  function hide(){
+    hook.classList.remove("show");
+    setTimeout(function(){ hook.hidden = true; }, 480);
+  }
+  function onLeave(e){
+    if (!e.relatedTarget && e.clientY <= 8) show();
+  }
+  function onScroll(){
+    var max = document.documentElement.scrollHeight - innerHeight;
+    if (max > 0 && scrollY / max >= 0.8) show();
+  }
+  var timer = setTimeout(show, 75000);
+  function cleanup(){
+    clearTimeout(timer);
+    document.removeEventListener("mouseout", onLeave);
+    removeEventListener("scroll", onScroll);
+  }
+  document.addEventListener("mouseout", onLeave);
+  addEventListener("scroll", onScroll, { passive: true });
+  document.getElementById("mapHookX").addEventListener("click", hide);
+  document.getElementById("mapHookNo").addEventListener("click", hide);
+  document.getElementById("mapHookGo").addEventListener("click", hide);
+})();
 </script>
 </body>
 </html>
