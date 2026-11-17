@@ -120,6 +120,20 @@ h2{font-size:clamp(27px,5.5vw,38px);line-height:1.08;letter-spacing:-.01em;margi
 /* Price */
 .price-box{background:linear-gradient(160deg,#122344,#0c2a22 55%,#171106);border:1px solid var(--line2);border-radius:24px;padding:26px;box-shadow:var(--shadow);display:grid;gap:24px}
 @media(min-width:860px){.price-box{grid-template-columns:1.05fr .95fr;padding:36px}}
+/* Tiers */
+.tiers{display:grid;gap:20px}
+@media(min-width:860px){.tiers{grid-template-columns:1fr 1fr}.price-box{grid-template-columns:1fr}}
+.tier{border:1px solid var(--line2);border-radius:18px;padding:22px;background:rgba(7,10,20,.45);position:relative}
+.tier.featured{border-color:#d4af37;background:linear-gradient(165deg,rgba(212,175,55,.13),rgba(7,10,20,.5) 55%)}
+.tier-badge{position:absolute;top:-13px;right:16px;background:linear-gradient(90deg,#d4af37,#f3d27a);color:#171106;font-weight:900;font-size:12.5px;letter-spacing:.04em;padding:5px 12px;border-radius:999px;box-shadow:var(--shadow)}
+/* Email capture hook */
+.map-hook{position:fixed;left:50%;bottom:18px;transform:translate(-50%,140%);width:min(430px,calc(100vw - 28px));background:linear-gradient(160deg,#122344,#0c2a22 60%,#171106);border:1px solid var(--line2);border-radius:18px;box-shadow:var(--shadow);padding:20px 20px 16px;z-index:90;transition:transform .45s ease}
+.map-hook.show{transform:translate(-50%,0)}
+.map-hook h3{font-size:19px;margin:0 26px 6px 0}
+.map-hook p{color:var(--muted);font-size:14.5px;margin:0 0 12px}
+.map-hook .hook-x{position:absolute;top:8px;right:12px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;padding:4px}
+.map-hook .hook-no{display:block;margin-top:10px;background:none;border:none;color:var(--muted);font-size:13.5px;cursor:pointer;text-decoration:underline;padding:0}
+.map-hook .hook-fine{font-size:12px;color:var(--muted);margin-top:8px}
 /* Preview marquee */
 .preview{padding:34px 0 6px;overflow:hidden}
 .preview-head{text-align:center;color:var(--muted);font-weight:700;margin-bottom:14px}
@@ -139,14 +153,6 @@ h2{font-size:clamp(27px,5.5vw,38px);line-height:1.08;letter-spacing:-.01em;margi
 .xpromo p{color:var(--muted);margin:0;font-size:15px}
 .xpromo .xp-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:8px}
 .xpromo .xp-price{font-weight:900;font-size:17px}
-/* Email capture hook */
-.map-hook{position:fixed;left:50%;bottom:18px;transform:translate(-50%,140%);width:min(430px,calc(100vw - 28px));background:linear-gradient(160deg,#122344,#0c2a22 60%,#171106);border:1px solid var(--line2);border-radius:18px;box-shadow:var(--shadow);padding:20px 20px 16px;z-index:90;transition:transform .45s ease}
-.map-hook.show{transform:translate(-50%,0)}
-.map-hook h3{font-size:19px;margin:0 26px 6px 0}
-.map-hook p{color:var(--muted);font-size:14.5px;margin:0 0 12px}
-.map-hook .hook-x{position:absolute;top:8px;right:12px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;padding:4px}
-.map-hook .hook-no{display:block;margin-top:10px;background:none;border:none;color:var(--muted);font-size:13.5px;cursor:pointer;text-decoration:underline;padding:0}
-.map-hook .hook-fine{font-size:12px;color:var(--muted);margin-top:8px}
 .price-big{font-size:64px;font-weight:950;line-height:1;letter-spacing:-.03em}
 .price-big sup{font-size:26px;vertical-align:top;color:var(--gem)}
 .price-tag{color:var(--muted);font-weight:700}
@@ -324,10 +330,11 @@ footer{border-top:1px solid var(--line);padding:28px 0 36px;color:var(--muted);f
 <section id="buy" class="alt">
   <div class="wrap">
     <p class="kicker">💰 Price</p>
-    <h2>One price. Everything included.</h2>
-    <p class="sub">No tiers, no upsells, no subscription. Pay once, download the whole pack, keep it forever.</p>
+    <h2>Two ways in. Same full pack.</h2>
+    <p class="sub">One-time payment either way — no subscription, no upsells. Pay once, download the whole pack, keep it forever. Or step up once and every future app drop is yours too.</p>
     <div class="price-box">
-      <div>
+      <div class="tiers">
+      <div class="tier">
         <p class="price-tag">APP MONETIZATION STARTER PACK</p>
         <p class="price-big"><sup>$</sup>29</p>
         <p class="price-tag">One-time payment • Instant ZIP download • Less than 65¢ per app</p>
@@ -342,6 +349,23 @@ footer{border-top:1px solid var(--line);padding:28px 0 36px;color:var(--muted);f
           <a class="btn btn-buy" href="https://www.paypal.com/ncp/payment/VYEC3SYYK6RWU" data-buy="app-monetization-starter-pack">💎 Buy Now — $29</a>
         </div>
         <p class="guarantee">Secure checkout via PayPal — one-time payment, no account needed to pay.</p>
+      </div>
+      <div class="tier featured">
+        <span class="tier-badge">⭐ BEST VALUE</span>
+        <p class="price-tag">PACK + UPDATES</p>
+        <p class="price-big"><sup>$</sup>49</p>
+        <p class="price-tag">One-time payment • Instant ZIP download • All future drops included</p>
+        <ul class="includes">
+          <li><span><strong>Everything in the Starter Pack</strong> — all 45 apps, Model Map &amp; full source</span></li>
+          <li><span><strong>Every future app drop</strong> — new apps added to the pack, yours free</span></li>
+          <li><span><strong>Lifetime updates</strong> — buy once, the pack keeps growing</span></li>
+          <li><span><strong>Simple commercial license</strong> — use it in your own projects</span></li>
+        </ul>
+        <div class="hero-cta" style="margin-top:22px">
+          <a class="btn btn-buy" href="https://www.paypal.com/ncp/payment/5WJ7LZTA95E6S" data-buy="app-monetization-pack-updates">💎 Get Pack + Updates — $49</a>
+        </div>
+        <p class="guarantee">Secure checkout via PayPal — one-time payment, no account needed to pay.</p>
+      </div>
       </div>
       <div class="license">
         <h3>📜 Simple license</h3>
